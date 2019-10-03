@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Njit-yik-yak</string>
+    <string name="welcome_text">Hello Njik Njak!</string>
+    <string name="temp_string">0</string>
+</resources>
