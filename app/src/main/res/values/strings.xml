@@ -4,4 +4,7 @@
     <string name="temp_string">0</string>
     <string name="random_heading">Here is a random number between 0 and %1d.</string>
     <string name="textview_random">R</string>
+    <string name="location_header">Location Permission</string>
+    <string name="location_description">This app uses location service to provide the best experience to you, the user. Please allow it or it will not work and you\'ll regret it.</string>
+    <string name="location_button">Continue</string>
 </resources>

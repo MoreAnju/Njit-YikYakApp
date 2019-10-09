@@ -1,17 +1,42 @@
 package com.example.njit_yik_yak
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
 
+    private val TAG = "MainActivity"
+
+    private val LOCATION_REQUEST_CODE = 101
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Check for location permission before asserting the view
+        checkLocationPermission()
+
         setContentView(R.layout.activity_main)
+    }
+
+    private fun checkLocationPermission() {
+        val permission = ContextCompat.checkSelfPermission(this,
+            Manifest.permission.ACCESS_FINE_LOCATION)
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            val locationIntent = Intent(this, LocationPermissionActivity::class.java)
+
+            // Start the new activity.
+            startActivity(locationIntent)
+        }
     }
 
     fun toastMe(view: View) {
