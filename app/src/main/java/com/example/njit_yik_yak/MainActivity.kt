@@ -1,5 +1,6 @@
 package com.example.njit_yik_yak
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -32,5 +33,26 @@ class MainActivity : AppCompatActivity() {
 
         // Display the new value in the text view.
         showCountTextView.text = count.toString()
+    }
+
+    fun randomMe (view: View) {// Get the text view
+        // ®val textView = findViewById<TextView>(R.id.textView)
+
+        // Get the current value of the text view.
+        // val countString = textView.text.toString()
+
+        // Convert the count to an int
+        // val count = Integer.parseInt(countString)
+
+        // Create an Intent to start the second activity
+        // val randomIntent = Intent(this, Main2Activity::class.java)
+
+        // Add the count to the extras for the Intent.
+        // randomIntent.putExtra(Main2Activity.TOTAL_COUNT, count)
+        // Create an Intent to start the second activity
+        val randomIntent = Intent(this, Main2Activity::class.java)
+
+        // Start the new activity.
+        startActivity(randomIntent)
     }
 }

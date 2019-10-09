@@ -2,4 +2,6 @@
     <string name="app_name">Njit-yik-yak</string>
     <string name="welcome_text">Hello Njik Njak!</string>
     <string name="temp_string">0</string>
+    <string name="random_heading">Here is a random number between 0 and %1d.</string>
+    <string name="textview_random">R</string>
 </resources>
