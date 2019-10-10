@@ -1,12 +1,17 @@
 package com.example.njit_yik_yak
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -25,6 +30,51 @@ class MainActivity : AppCompatActivity() {
         checkLocationPermission()
 
         setContentView(R.layout.activity_main)
+
+        val listview =findViewById<ListView>(R.id.Home_page)
+
+        listview.adapter= MycustomeAdaptor(this)
+    }
+
+    private class MycustomeAdaptor (context : Context): BaseAdapter(){
+        private val mContext: Context
+
+
+        init{
+            this.mContext = context
+        }
+
+        override fun getView(position: Int, convertView: View?, viewGroup : ViewGroup?): View {
+            val layoutInflater= LayoutInflater.from(mContext)
+            val rowMain = layoutInflater.inflate(R.layout.main_row, viewGroup,false)
+
+            val postTime = rowMain.findViewById<TextView>(R.id.texttime)
+
+            postTime.text= "Post time"
+            return rowMain
+
+            /* val textview= TextView(mContext)
+                     textview.text="This is text for list view"
+                     return textview;
+         */
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+        // how many rows in my list
+        override fun getCount(): Int {
+            return 20
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+        override fun getItemId(position: Int): Long {
+            return position.toLong();
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+        override fun getItem(position: Int): Any {
+            return "Text String"
+
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+
     }
 
     private fun checkLocationPermission() {
@@ -39,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun toastMe(view: View) {
+    /* fun toastMe(view: View) {
         // val myToast = Toast.makeText(this, message, duration);
         val myToast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT)
         myToast.show()
@@ -79,5 +129,5 @@ class MainActivity : AppCompatActivity() {
 
         // Start the new activity.
         startActivity(randomIntent)
-    }
+    } */
 }
